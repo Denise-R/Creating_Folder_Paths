@@ -1,4 +1,4 @@
-```
+
 import re
 import os
 
@@ -71,8 +71,8 @@ def creating_folder_paths(source_file_name):
             elif is_exist == False:
                 os.mkdir(path)
                 print("The folder path:" + str(path) + " was created")
-```
+
 
 # To use the function: 
-creating_folder_paths("example_source_file_name")
+# creating_folder_paths("example_source_file_name")
 
