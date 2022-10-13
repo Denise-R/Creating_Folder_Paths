@@ -111,9 +111,10 @@ list2 = []
 ```
 
 
-### __Section 7:__
+## __Using the function__
+
+### __Section 8:__
 ```
 source_file_name = "C:\\folder1\\folder2\\folder3\\folder4\\example.py"
 creating_folder_paths(source_file_name)
-
 ```
