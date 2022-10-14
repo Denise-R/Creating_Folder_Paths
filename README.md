@@ -21,6 +21,8 @@ import os
 
 
 ### __Section 2:__
+To begin creating the function <span style="color:red">creating_folder_paths</span>, any source code file needs to be converted into a .txt file.
+
 
 *Note: All of <span style="color:orange">Sections 2-7</span> are contained within the 'def creating_folder_paths(source_file_name):'*
 
@@ -31,7 +33,7 @@ To accomplish this, the following steps are taken:
 4. A for loop is created to iterate through each line in the <span style="color:blue">source_code</span>.
 5. Within this for loop the <span style="color:blue">code_search.txt</span> (named <span style="color:blue">filename</span>) is opened in append (<span style="color:blue">r</span>) mode. 
 6. A second for loop is created that iterates through each character within every line of the <span style="color:blue">source_code</span>.
-7. Within this nested for loop, an if/else statement is used to change any "\" character to "/" if nesessary and append the character to the <span style="color:blue">code_search.txt</span> file. 
+7. Within this nested for loop, an if/else statement is used to change any "\" character to "/" if nesessary and append the character to the <span style="color:blue">code_search.txt</span> file. This is necessary because "\", "\\", "/", and "//" are valid ways to deliniate folders in other programming languages, but only "\\", "/", and "//" are valid in python.
 8. Once this process has repeated for all the the characters in every line of <span style="color:blue">source_code</span>, the for loops are broken and the files are closed.
 
 ```
@@ -52,7 +54,7 @@ def creating_folder_paths(source_file_name):
 
 
 ### __Section 3:__
-open the .txt, read each line and check if "C:..." exists in that line. If it does add it to list.
+The .txt file, "<span style="color:blue">code_search.txt</span>", created in <span style="color:orange">Section 2</span> is opened and each line of this file is checked to see if it contains a folder/file path located in the C drive. If a folder/file path is found, this character string is added to a list titled <span style="color:blue">list</span>.
 
 To accomplish this, the following steps are taken:
 1. A list titled <span style="color:blue">list</span> is created.
@@ -74,7 +76,7 @@ To accomplish this, the following steps are taken:
 
 
 ### __Section 4:__
-Checking to see if you want all the folder paths found in the txt
+The function <span style="color:red">input</span> is used to verify that the user wants to create a folder path from each path found in the <span style="color:blue">code_search.txt</span>/source code. Every folder path that the user wants to create is then saved in a list titled <span style="color:blue">list_keep</span>.
 
 To accomplish this, the following steps are taken:
 1. The <span style="color:blue">question</span>, <span style="color:blue">possible_reply</span>, and <span style="color:blue">syntax_error</span> text strings are created.
@@ -101,7 +103,7 @@ To accomplish this, the following steps are taken:
 
 
 ### __Section 5:__
-splitting the file location into the separate folders
+Each file location in the list <span style="color:blue">list_keep</span>, created in <span style="color:orange">Section 4</span>, is devided into each spearate folder. These folders are then saved in a list titled <span style="color:blue">list1</span>.
 
 To accomplish this, the following steps are taken:
 1. A list titled <span style="color:blue">list1</span> is created.
@@ -122,7 +124,7 @@ To accomplish this, the following steps are taken:
 
 
 ### __Section 6:__
-removing "['" and "]'" 
+Any unwanted item in the list <span style="color:blue">list1</span>, created in <span style="color:orange">Section 5</span>, is removed. This includeds: "['", "]'", and ''. The simplified version of <span style="color:blue">list1</span> is then saved as a list titled <span style="color:blue">list2</span>.
 
 To accomplish this, the following steps are taken:
 1. A list titled <span style="color:blue">list2</span> is created.
@@ -147,7 +149,7 @@ To accomplish this, the following steps are taken:
 
 
 ### __Section 7:__
-finding parent dir for each folder, checking if folder path exists, if i doent exist making the folder
+Next, the lists <span style="color:blue">list_keep</span>, created in <span style="color:orange">Section 4</span>, and <span style="color:blue">list2</span>, created in <span style="color:orange">Section 6</span>, are used to determine the parent directory of each folder that the user has specified they want to create. The function <span style="color:red">os.path.exists</span> is used to determine if the folder already exisits on the user's mac/pc. If the folder does not already exist, the function <span style="color:red">os.mkdir</span> is used to create it. 
 
 To accomplish this, the following steps are taken:
 1. A for loop is created to iterate through each <span style="color:blue">i</span> in the list <span style="color:blue">list_keep</span> that was created in <span style="color:orange">Section 4</span>.
@@ -159,7 +161,7 @@ To accomplish this, the following steps are taken:
 7. The function <span style="color:red">os.path.join</span> is used to specifiy the folder <span style="color:blue">path</span> that will be created by joining <span style="color:blue">parent_dir</span> and <span style="color:blue">j</span>.
 8. Next, the function <span style="color:red">os.path.exists</span> is used to determine if the folder <span style="color:blue">path</span> already exists. This booleen answer is saved as <span style="color:blue">is_exists</span>
 9. An if/else statement is used so that if <span style="color:blue">is_exists</span> is 'True', then the user is alerted of this in the console and the loop continues. If <span style="color:blue">is_exists</span> is 'False', then the function <span style="color:red">os.mkdir</span> is used to create the folder <span style="color:blue">path</span> and the user is alerted of this in the console.
-10. Once this process has repeated for every <span style="color:red">j</span> in <span style="color:blue">list2[x]</span> and <span style="color:red">i</span> in <span style="color:blue">list_keep</span>, the for loops are broken.
+10. Once this process has repeated for every <span style="color:blue">j</span> in <span style="color:blue">list2[x]</span> and <span style="color:blue">i</span> in <span style="color:blue">list_keep</span>, the for loops are broken.
 
 ```
     for i in list_keep:
@@ -269,4 +271,7 @@ def creating_folder_paths(source_file_name):
             elif is_exist == False:
                 os.mkdir(path)
                 print("The folder path:" + str(path) + " was created")
+
+source_file_name = "C:\\folder1\\folder2\\folder3\\folder4\\example.py"
+creating_folder_paths(source_file_name)
 ```
