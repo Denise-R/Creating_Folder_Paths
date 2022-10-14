@@ -185,7 +185,7 @@ To accomplish this, the following steps are taken:
 ## __Using the function__
 
 ### __Section 8:__
-Now that the function <span style="color:red">creating_folder_paths</span> has been defined, it can be used by specifying the <span style="color:blue">source_file_name</span> of the source code. When defining the <span style="color:blue">source_file_name</span>, each folder should be delineated by either "/", "//", or "\\" for <span style="color:blue">source_file_name</span> to be a valid entry in python. 
+Now that the function <span style="color:red">creating_folder_paths</span> has been defined, it can be used by specifying the <span style="color:blue">source_file_name</span> of the source code. When defining the <span style="color:blue">source_file_name</span>, each folder should be delineated by either "/", "//", or "\\\\" for <span style="color:blue">source_file_name</span> to be a valid entry in python. 
 
 An example of how to use the function <span style="color:red">creating_folder_paths</span> is shown below. 
 
