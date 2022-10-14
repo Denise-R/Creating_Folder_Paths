@@ -74,5 +74,6 @@ def creating_folder_paths(source_file_name):
 
 
 # To use the function: 
-# creating_folder_paths("example_source_file_name")
+source_file_name = "C:\\folder1\\folder2\\folder3\\folder4\\example.py"
+creating_folder_paths(source_file_name)
 
